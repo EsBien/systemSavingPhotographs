@@ -38,7 +38,7 @@ It is utilized within the Application component and interacts with the Collectio
 The Display-Collection component is used within the Main Collection component to visually represent</br>
 the data of a specific collection retrieved from the database.</br>
 
-5. **Image Tapping Component**
+5. **Image Tab Component**
 The Image Tapping component is utilized to display individual images within the Main Collection component.</br>
 It provides a user-friendly interface for viewing and interacting with images in the collection.</br>
 
@@ -49,6 +49,47 @@ It provides a user-friendly interface for viewing and interacting with images in
 1. Navigate to the server-side folder
 2. Run the application.
 3. Open your browser and go to localhost to access the API
+
+1. **Data Access Layer (DL)**
+Responsibility:</br>
+Interacts with the data source, which is a JSON file acting as a database.</br>
+Provides methods to retrieve a collection based on a provided collection number.</br>
+Saves the collection to the database and creates text files for each image in the collection.</br>
+
+3. **Business Logic Layer (BL)**
+Responsibility:</br>
+Contains the logic for processing and managing collections.</br>
+Communicates with the Data Access Layer to retrieve and save data.</br>
+
+4. **Collection Controller**
+Responsibility:</br>
+Handles HTTP requests and interacts with the Business Logic Layer.</br>
+Contains API endpoints that clients can call to perform operations on collections.</br>
+Defines an API endpoint to get a collection based on the provided collection number.</br>
+Defines an API endpoint to save a collection to the database.</br>
+
+**GetCollectionName(string collectionNumber)**
+Purpose:</br>
+Retrieves a collection based on the provided collectionNumber from the database.</br>
+1. Input: Accepts a collectionNumber as a parameter.</br>
+2. Data Retrieval: Utilizes the Data Access Layer to fetch the corresponding collection from the database (JSON file in this case).</br>
+3,#. Processing: Processes the retrieved data if additional business logic is required.</br>
+4. Output: Returns a Task<Collection> representing the asynchronous operation to get the collection. </br>
+Clients (such as the Angular front-end) can call this function to obtain details about a specific collection.</br>
+
+**SaveCollection(Collection collectionData**);
+Purpose: Saves a collection to the database, and for each image in the collection, it generates a text file with image information.</br>
+1. Input: Accepts a collectionData object representing the collection to be saved.</br>
+2. Data Saving: Uses the Data Access Layer to persist the collection data in the database (JSON file).</br>
+3. Text File Generation: Iterates through each image in the collection.</br>
+4. Create a text file for each image with relevant information (e.g., image path, metadata).</br>
+5. Output: Completes the saving process without returning any specific result</br>
+Clients invoke this function to store a new collection in the system, including associated images.</br>
+
+6. Entities
+Responsibility:
+Defines the structure of data entities used in the application, specifically the Collection entity.
+The Collection entity represents the data structure of a collection.
 
 **Database**
 The application uses a JSON file (DBcollections.json) as a simple database. Ensure it's properly configured and accessible.
