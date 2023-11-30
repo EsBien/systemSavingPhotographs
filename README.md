@@ -2,7 +2,7 @@
 # Project Overview
 This project is a web-based system for managing and saving photographs delivered to LID Vashem. </br>
 It consists of a client-side application developed with Angular and a server-side application built with C# .NET 7. </br>
-
+[Screenshots of client Photographs System](https://github.com/EsBien/systemSavingPhotographs/tree/main/ProjectScreenshots)
 # Client-Side (Angular)
 **Prerequisites**
 Node.js and npm installed [(Download Node.js)](https://nodejs.org/en) </br>
