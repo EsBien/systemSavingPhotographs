@@ -1,0 +1,29 @@
+
+<h1>{{title}}</h1>
+
+<mat-form-field class="form">
+
+    <div class="input-with-button">
+        <button mat-button class="custom-button" (click)="onSubmit(collectionName.value)">
+            <mat-icon style="text-align: left;">keyboard_arrow_left</mat-icon>
+            <span style="margin-left: 8px;">הבא</span>
+        </button>
+        <input matInput class="custom-input" #collectionName type="text" name="collectionNumber">
+        <mat-label>*מספר אוסף</mat-label>
+    </div>
+</mat-form-field>
+<app-collection-display [collectionName]="collectionNameInput"></app-collection-display>
+<button style="text-align: right;" class="addAImage" (click)="addImage()">הוסף תמונה לאוסף</button>
+
+<ng-container *ngFor="let image of images">
+    <app-image-tab [showImage]="isDisplayImage" [displyImage]="image" [lastImageNumber]="this.collection.images.length"
+        [displaySuccessMessage]="imagesSaveSuccessfully" (onDeleteImage)="deleteLastImage()"
+        (onBackImagePath)="displayBackPathImage(image)"></app-image-tab>
+</ng-container>
+
+<div class="button-containet" *ngIf="isDisplayImage">
+    <button class="saveImage" (click)="Saveimages()">
+        <mat-icon style="text-align: left;">keyboard_arrow_left</mat-icon>
+        <span style="margin-left: 8px;">שמירה</span>
+    </button>
+</div>

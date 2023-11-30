@@ -1,0 +1,42 @@
+form {
+    border: 1px solid steelblue;
+    padding: 16px;
+    text-align: center;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+:host {
+    display: flex;
+    flex-direction: column;
+}
+
+form div {
+    width: auto;
+    text-align: right;
+}
+
+.imageFrom div p {
+    font-weight: bold;
+}
+
+.imageFrom div input {
+    width: 50%;
+    color: black;
+    background-color: rgb(225, 222, 218);
+    text-align: right;
+}
+
+.deleteIcone {
+    color: red;
+    border: 0;
+    text-align: left;
+    background-color: white;
+}
+
+.saveImageSuccessfully {
+    color: green;
+    display: flex;
+    justify-content: flex-start;
+    text-align: left;
+}

@@ -1,0 +1,14 @@
+.collectionName {
+    /* background: #f4f4f4; */
+    margin: 5px;
+    /* padding: 10px 20px; */
+    cursor: pointer;
+    height: 60px;
+  }
+  .collectionName h4{
+    text-align: right;
+    font-weight: bold;
+  }
+  .collectionName p{
+   background-color: rgb(218, 223, 222);
+  }

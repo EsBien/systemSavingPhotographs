@@ -1,0 +1,25 @@
+ <form class="imageFrom" *ngIf="showImage">
+    <div>
+        <mat-label *ngIf="displaySuccessMessage" class="saveImageSuccessfully">
+            <mat-icon style="color: green;">check_box</mat-icon>התווסף בהצלחה
+        </mat-label>
+        <button style="text-align:left;" class="deleteIcone" mat-button (click)="OnDelete()"
+            *ngIf="lastImageNumber===this.displyImage?.imageNumber">
+            <mat-icon>delete_outline</mat-icon>
+        </button>
+        <p>מספר תמונה</p>
+        <input matInput readonly name="inputField"
+            [placeholder]="displyImage.collectionSymbolization || 'Default Placeholder'">
+        <p>נתיב שמירת התמונה</p>
+        <input matInput readonly name="inputField" [placeholder]="displyImage.imagePath || 'Default Placeholder'">
+        <br>
+        <div *ngIf="showBackImagePathe">
+            <p>נתיב שמירת גב התמונה</p>
+            <input matInput readonly name="inputField"
+                [placeholder]="displyImage.imageBackPath || 'Default Placeholder'">
+        </div>
+        <mat-checkbox class="example-margin" (change)="showBackImage($event.checked)">גב התמונה</mat-checkbox>
+
+    </div>
+
+</form>

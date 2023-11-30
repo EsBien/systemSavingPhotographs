@@ -1,0 +1,72 @@
+
+
+h1{
+    text-align: center;
+    color: blue;
+    font-weight: bold;
+}
+:host {
+    display: flex;
+    flex-direction: column;
+  }
+
+ .form .input-with-button {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  text-align: right;
+  
+}
+.input-with-button .custom-input {
+  /* width: 70%;  */
+  color: #060607;
+  border: 3px solid #000;
+  text-align: right;
+  /* margin-left: 4px; */
+}
+ 
+ .input-with-button .custom-button {
+   height: 50%; 
+  font-size: 16px;
+  align-items: center;
+  text-align: right;
+  color: rgb(249, 253, 253);
+  background-color: rgb(34, 31, 125);
+  display: flex;
+  justify-content: space-between;
+  border: 0;
+} 
+.form
+{
+  height: 90px;
+}
+mat-icon {
+  margin-right: 4px; /* Optional: Add spacing between the icon and text */
+}
+ .addAImage
+{
+    color: rgb(0, 89, 255);
+    font-weight: bold;
+    border: 0;
+    background-color: white;
+    /* width: 30%; */
+}
+.saveImage
+{
+  margin: 5px; 
+  border-radius: 5px; 
+  font-size: 16px;
+  align-items: center;
+  text-align: right;
+  color: rgb(249, 253, 253);
+  background-color: rgb(60, 110, 218);
+  display: flex;
+  justify-content: space-between;
+  border: 0;
+  width: 16%;
+}
+.button-containet{
+  display: flex;
+  justify-content: flex-end;
+
+}
