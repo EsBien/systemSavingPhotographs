@@ -73,7 +73,7 @@ Purpose:</br>
 Retrieves a collection based on the provided collectionNumber from the database.</br>
 1. Input: Accepts a collectionNumber as a parameter.</br>
 2. Data Retrieval: Utilizes the Data Access Layer to fetch the corresponding collection from the database (JSON file in this case).</br>
-3,#. Processing: Processes the retrieved data if additional business logic is required.</br>
+3 . Processing: Processes the retrieved data if additional business logic is required.</br>
 4. Output: Returns a Task<Collection> representing the asynchronous operation to get the collection. </br>
 Clients (such as the Angular front-end) can call this function to obtain details about a specific collection.</br>
 
