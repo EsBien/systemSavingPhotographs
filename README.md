@@ -2,7 +2,7 @@
 # Project Overview
 This project is a web-based system for managing and saving photographs delivered to LID Vashem. </br>
 It consists of a client-side application developed with Angular and a server-side application built with C# .NET 7. </br>
-
+[Screenshots of client Photographs System](https://github.com/EsBien/systemSavingPhotographs/tree/main/ProjectScreenshots)
 # Client-Side (Angular)
 **Prerequisites**
 Node.js and npm installed [(Download Node.js)](https://nodejs.org/en) </br>
@@ -73,7 +73,7 @@ Purpose:</br>
 Retrieves a collection based on the provided collectionNumber from the database.</br>
 1. Input: Accepts a collectionNumber as a parameter.</br>
 2. Data Retrieval: Utilizes the Data Access Layer to fetch the corresponding collection from the database (JSON file in this case).</br>
-3,#. Processing: Processes the retrieved data if additional business logic is required.</br>
+3 . Processing: Processes the retrieved data if additional business logic is required.</br>
 4. Output: Returns a Task<Collection> representing the asynchronous operation to get the collection. </br>
 Clients (such as the Angular front-end) can call this function to obtain details about a specific collection.</br>
 
