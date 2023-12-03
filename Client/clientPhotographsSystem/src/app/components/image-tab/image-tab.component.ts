@@ -1,7 +1,7 @@
 import { Component, Input, EventEmitter, Output } from '@angular/core';
 import { Collection } from '../../models/collection';
 import { Image } from '../../models/Image';
-
+//לפי הבנתי לדרישות של הפרוייקט אני שומרת את הנתיב לתמונה ולא את התמונה עצמה
 @Component({
   selector: 'app-image-tab',
   templateUrl: './image-tab.component.html',
