@@ -14,12 +14,14 @@
 </mat-form-field>
 <app-collection-display [collectionName]="collectionNameInput"></app-collection-display>
 <button style="text-align: right;" class="addAImage" (click)="addImage()">הוסף תמונה לאוסף</button>
+<button style="text-align: right;" class="addAImage" (click)="displayAllImage()">הצג את כל תמונות האוסף</button>
 
 <ng-container *ngFor="let image of images">
     <app-image-tab [showImage]="isDisplayImage" [displyImage]="image" [lastImageNumber]="this.collection.images.length"
-        [displaySuccessMessage]="imagesSaveSuccessfully" (onDeleteImage)="deleteLastImage()"
+        [displaySuccessMessage]="imagesSaveSuccessfully" (onDeleteImage)="deleteLastImage()" [showCheckBox]="isDisplayCheckBox"
         (onBackImagePath)="saveBackPathImage(image)"></app-image-tab>
 </ng-container>
+
 
 <div class="button-containet" *ngIf="isDisplayImage">
     <button class="saveImage" (click)="Saveimages()">

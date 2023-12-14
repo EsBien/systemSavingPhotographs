@@ -20,36 +20,60 @@ export class CollectionInputComponent {
   collectionNameInput = "";
   collection!: Collection;
   isDisplayImage?: boolean = false;
+  isDisplayCheckBox:boolean=true;
   images: Image[] = [];
   imagesSaveSuccessfully: boolean = false;
   imageNumber: number = 0;
   constructor(private collectionService: CollectionService) {
 
   }
+  //כדי לשמור את כל התמונות האחרונות שנוספו עשיו לאוסף שישמר במערך תמונות
+  combineImages()
+  {
+    this.images=[]
+    for (let index = this.imageNumber; index < this.collection.images.length; index++) {
+      const image=this.collection.images[index];
+      this.images.push(image)
+      
+    }
+  }
   addImage() {
-    this.isDisplayImage = true;
-    this.imageNumber = this.collection.images.length + 1;
+    this.isDisplayImage = this.collection!=null?true:false;
+    this.isDisplayCheckBox=true;
+   // this.imageNumber = this.collection.images.length + 1;
     this.imagesSaveSuccessfully = false
     this.collection.images.push({
       collectionSymbolization: this.collection?.collectionSymbolization,
-      imagePath: `images/${this.collection?.collectionSymbolization}/000${this.imageNumber}.jpg`,
-      imageBackPath: "", imageNumber: this.imageNumber
+      imagePath: `images/${this.collection?.collectionSymbolization}/000${this.collection.images.length + 1}.jpg`,
+      imageBackPath: "", imageNumber: this.collection.images.length + 1
     })
-    const image=this.collection.images[this.collection.images.length-1];
-    this.images.push(image)
+    this.combineImages()
+    // const image=this.collection.images[this.collection.images.length-1];
+    // this.images.push(image)
   }
-
+  displayAllImage()
+  {
+    console.log("displayAllImage")
+    this.isDisplayCheckBox=false;
+    this.isDisplayImage = true;
+    this.images=this.collection.images
+  }
   saveBackPathImage(image: Image) {
     this.images.at(image.imageNumber - 1)!.imageBackPath = image.imageBackPath
     console.log(this.images.at(image.imageNumber - 1))
   }
-
+ 
   deleteLastImage() {
-    if (this.images?.length)
-      this.images?.pop()
-    else {
-      this.isDisplayImage = false //When all images are deleted, save button will not be displayed on the screen
+    if (this.collection.images?.length)
+    {
+      
+      this.collection.images?.pop()
+      this.combineImages()
     }
+    
+  else {
+    this.isDisplayImage = false //When all images are deleted, save button will not be displayed on the screen
+  }
   }
   //this function get the collection from 
   onSubmit(name: string) {
@@ -63,6 +87,7 @@ export class CollectionInputComponent {
           console.log(data);
           this.collectionNameInput = data.title;
           this.collection = data
+          this.imageNumber = this.collection.images.length ;
         },
         (error) => {
           console.error(error);
