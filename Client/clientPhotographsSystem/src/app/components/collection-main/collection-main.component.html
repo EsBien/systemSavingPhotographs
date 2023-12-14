@@ -18,7 +18,7 @@
 <ng-container *ngFor="let image of images">
     <app-image-tab [showImage]="isDisplayImage" [displyImage]="image" [lastImageNumber]="this.collection.images.length"
         [displaySuccessMessage]="imagesSaveSuccessfully" (onDeleteImage)="deleteLastImage()"
-        (onBackImagePath)="displayBackPathImage(image)"></app-image-tab>
+        (onBackImagePath)="saveBackPathImage(image)"></app-image-tab>
 </ng-container>
 
 <div class="button-containet" *ngIf="isDisplayImage">

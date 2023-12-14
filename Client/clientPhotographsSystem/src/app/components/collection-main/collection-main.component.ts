@@ -14,7 +14,7 @@ import { Collection } from '../../models/collection';
 })
 export class CollectionInputComponent {
 
-  @Output() displayImageCollection: EventEmitter<Collection> = new EventEmitter<Collection>();
+ 
   title: string = "סריקת אוסף"
   collectionNumber: string = '';
   collectionNameInput = "";
@@ -39,7 +39,7 @@ export class CollectionInputComponent {
     this.images.push(image)
   }
 
-  displayBackPathImage(image: Image) {
+  saveBackPathImage(image: Image) {
     this.images.at(image.imageNumber - 1)!.imageBackPath = image.imageBackPath
     console.log(this.images.at(image.imageNumber - 1))
   }
