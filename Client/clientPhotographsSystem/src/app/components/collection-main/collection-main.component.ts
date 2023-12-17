@@ -24,6 +24,7 @@ export class CollectionInputComponent {
   images: Image[] = [];
   imagesSaveSuccessfully: boolean = false;
   imageNumber: number = 0;
+  buttonTextColor = 'blue'
   constructor(private collectionService: CollectionService) {
 
   }
@@ -37,10 +38,11 @@ export class CollectionInputComponent {
       
     }
   }
+
+
   addImage() {
     this.isDisplayImage = this.collection!=null?true:false;
     this.isDisplayCheckBox=true;
-   // this.imageNumber = this.collection.images.length + 1;
     this.imagesSaveSuccessfully = false
     this.collection.images.push({
       collectionSymbolization: this.collection?.collectionSymbolization,
@@ -48,12 +50,10 @@ export class CollectionInputComponent {
       imageBackPath: "", imageNumber: this.collection.images.length + 1
     })
     this.combineImages()
-    // const image=this.collection.images[this.collection.images.length-1];
-    // this.images.push(image)
   }
   displayAllImage()
   {
-    console.log("displayAllImage")
+    this.buttonTextColor='green'
     this.isDisplayCheckBox=false;
     this.isDisplayImage = true;
     this.images=this.collection.images
@@ -64,13 +64,12 @@ export class CollectionInputComponent {
   }
  
   deleteLastImage() {
-    if (this.collection.images?.length)
+    if ( this.collection.images?.length)
     {
-      
+      if(confirm(`Are you shure you whant yo delete image?`) ){
       this.collection.images?.pop()
-      this.combineImages()
-    }
-    
+      this.combineImages()}
+    }  
   else {
     this.isDisplayImage = false //When all images are deleted, save button will not be displayed on the screen
   }
@@ -81,7 +80,7 @@ export class CollectionInputComponent {
     this.imagesSaveSuccessfully=false
     this.collectionNumber = name
     this.images = [] // clearing out the image list for a new collection
-    this.collectionService.getCollectionName(this.collectionNumber)
+     this.collectionService.getCollectionName(this.collectionNumber)
       .subscribe(
         (data) => {
           console.log(data);

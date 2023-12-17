@@ -1,4 +1,5 @@
 <div *ngIf="collectionName" class="collectionName">
     <h4>שם ההוסף</h4>
-    <p style="text-align: right;">{{ collectionName }}</p>
+    <p [class.styleName]="collectionName.length>40" style="text-align: right;">{{ collectionName }}</p>
 </div>
+

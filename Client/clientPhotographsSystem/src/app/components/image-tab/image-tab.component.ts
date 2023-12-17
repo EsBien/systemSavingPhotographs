@@ -10,8 +10,9 @@ import { Image } from '../../models/Image';
 export class ImageTabComponent {
   @Input() showImage?: boolean = false;
   @Input() showCheckBox?: boolean = true;
+  @Input() lastImageNumber: boolean=false;
   @Input() displyImage!: Image;
-  @Input() lastImageNumber?: Number;
+ 
   @Input() displaySuccessMessage: boolean = false;
   @Output() onDeleteImage: EventEmitter<any> = new EventEmitter();
   @Output() onBackImagePath: EventEmitter<Image> = new EventEmitter();

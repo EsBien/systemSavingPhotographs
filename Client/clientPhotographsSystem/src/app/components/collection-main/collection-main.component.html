@@ -1,5 +1,5 @@
 
-<h1>{{title}}</h1>
+<h1 >{{title}}</h1>
 
 <mat-form-field class="form">
 
@@ -13,11 +13,14 @@
     </div>
 </mat-form-field>
 <app-collection-display [collectionName]="collectionNameInput"></app-collection-display>
-<button style="text-align: right;" class="addAImage" (click)="addImage()">הוסף תמונה לאוסף</button>
-<button style="text-align: right;" class="addAImage" (click)="displayAllImage()">הצג את כל תמונות האוסף</button>
+<div>
+    <button style="text-align: right;" class="addAImage" (click)="addImage()">הוסף תמונה לאוסף</button>
+    <button [ngStyle]="{'color': buttonTextColor}" class="addAImage" (click)="displayAllImage()">הצג את כל תמונות האוסף</button>
+</div>
 
-<ng-container *ngFor="let image of images">
-    <app-image-tab [showImage]="isDisplayImage" [displyImage]="image" [lastImageNumber]="this.collection.images.length"
+
+<ng-container *ngFor="let image of images; let i = index">
+    <app-image-tab [showImage]="isDisplayImage" [displyImage]="image" [lastImageNumber]="i+1===this.images.length"
         [displaySuccessMessage]="imagesSaveSuccessfully" (onDeleteImage)="deleteLastImage()" [showCheckBox]="isDisplayCheckBox"
         (onBackImagePath)="saveBackPathImage(image)"></app-image-tab>
 </ng-container>
